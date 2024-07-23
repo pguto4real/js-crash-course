@@ -46,3 +46,25 @@ function getAverage(scores) {
   console.log(getGrade(96));
   console.log(getGrade(82));
   console.log(getGrade(56));
+
+  function hasPassingGrade(score) {
+    if(getGrade(score) === "F")
+    {
+      return false
+    }
+    else{
+      return true
+    }
+  }
+  
+  
+  console.log(hasPassingGrade(100));
+  console.log(hasPassingGrade(53));
+  console.log(hasPassingGrade(87));
+
+  function studentMsg(totalScores, studentScore) {
+    let passed = hasPassingGrade(studentScore)? "passed": "failed";
+    return `Class average: ${getAverage(totalScores)}. Your grade: ${getGrade(studentScore)}. You ${passed} the course.`
+  }
+  console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
+  console.log(studentMsg([56, 23, 89, 42, 75, 11, 68, 34, 91, 19], 100));
