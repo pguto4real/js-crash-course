@@ -17,7 +17,7 @@ function isInvalidInput(str) {
 }
 
 function ordinal_numbers(number) {
-    const defaultOrdinals = 
+    const defaultOrdinals =
     {
         1: { cardinal: 'one', Ordinal: 'First' },
         2: { cardinal: 'two', Ordinal: 'Second' },
@@ -49,20 +49,19 @@ function ordinal_numbers(number) {
         100: { cardinal: 'One Hundred', Ordinal: 'Hundredth' },
     }
     let number_to_string = '';
-    console.log(number.toString().length)
-    if(number.toString().length === 1 || defaultOrdinals.hasOwnProperty(number)){
-       return defaultOrdinals[number].Ordinal
+    // console.log(number.toString().length)
+    if (number.toString().length === 1 || defaultOrdinals.hasOwnProperty(number)) {
+        return defaultOrdinals[number].Ordinal
     }
-    else
-    {
-        
-            number_to_string = number.toString().split('')
-            first_exploded_string= parseInt(number_to_string[0]+"0")
-     
-            second_exploded_string= parseInt(number_to_string[1])
-        
+    else {
 
-        return defaultOrdinals[first_exploded_string].cardinal +"-" +defaultOrdinals[second_exploded_string].Ordinal
+        number_to_string = number.toString().split('')
+        first_exploded_string = parseInt(number_to_string[0] + "0")
+
+        second_exploded_string = parseInt(number_to_string[1])
+
+
+        return defaultOrdinals[first_exploded_string].cardinal + "-" + defaultOrdinals[second_exploded_string].Ordinal
     }
 }
 
@@ -70,8 +69,8 @@ function ordinal_numbers(number) {
 function addEntry() {
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
-    const entryCardinal  = ordinal_numbers(entryNumber);
-    
+    const entryCardinal = ordinal_numbers(entryNumber);
+
     const HTMLString = `
   <label for="${entryDropdown.value}-${entryNumber}-name">${entryCardinal} Entry : Name</label>
   <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name" />
